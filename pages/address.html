@@ -165,8 +165,23 @@
 
         document.getElementById('addressForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Address form is ready for input
+
+            // Collect data (you could store in localStorage if needed)
+            const addressData = {
+                fullName: document.getElementById('fullName').value,
+                mobile: document.getElementById('mobile').value,
+                pincode: document.getElementById('pincode').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                houseNo: document.getElementById('houseNo').value,
+                roadName: document.getElementById('roadName').value
+            };
+
+            // Save to localStorage so next page can read it
+            localStorage.setItem("deliveryAddress", JSON.stringify(addressData));
+
+            // Redirect to order summary
+            window.location.href = "order-summary.html";
         });
     </script>
 </body>
